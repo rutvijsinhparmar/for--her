@@ -18,7 +18,7 @@ body {
     color: #f5f5dc;
 }
 
-/* 2. THE MYSTERY BOX (Positioned to the Right) */
+/* 2. THE MYSTERY BOX (Shifted a few inches to the right) */
 #box-wrapper {
     position: fixed;
     top: 0;
@@ -26,20 +26,18 @@ body {
     width: 100%;
     height: 100%;
     display: flex;
-    /* This pushes the content to the right side */
-    justify-content: flex-end; 
+    /* This centers it first, then we use padding to nudge it */
+    justify-content: center; 
     align-items: center;
     z-index: 100;
-    /* Optional: Adds padding so it's not touching the very edge of the phone */
-    padding-right: 10%; 
-    background: rgba(0, 0, 0, 0.2); 
 }
 
 #mystery-box {
-    width: 160px;
-    height: 160px;
+    width: 180px;
+    height: 180px;
     background: #d4af37;
     position: relative;
+    left: 60px; /* This nudges the box "a few inches" (60 pixels) to the right */
     cursor: pointer;
     border: 4px solid #b8860b;
     box-shadow: -10px 20px 60px rgba(0,0,0,0.8);
@@ -55,8 +53,8 @@ body {
     position: absolute;
     top: -10px;
     left: -10px;
-    width: 180px;
-    height: 30px;
+    width: 200px;
+    height: 35px;
     background: #b8860b;
     border: 2px solid #5d4037;
     z-index: 2;
@@ -67,23 +65,23 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 2.5rem;
+    font-size: 3rem;
 }
 
 .instruction {
     position: absolute;
-    bottom: -60px;
+    bottom: -70px;
     width: 100%;
     text-align: center;
     color: #d4af37;
     font-family: 'Cinzel Decorative', cursive;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* 3. THE REVEALED GIFTS (The Jharokha Style) */
+/* 3. THE REVEALED GIFTS */
 #gift-container {
     display: flex;
     flex-direction: column;
