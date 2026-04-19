@@ -1,34 +1,60 @@
-body {
+/* 1. CORE LAYOUT & BACKGROUND */
+html, body {
     margin: 0;
     padding: 0;
+    width: 100%;
+    /* Fix for mobile browser address bars */
+    height: 100%;
+    min-height: -webkit-fill-available; 
+}
+
+body {
     background: #800020 url('background.jpg') no-repeat center center fixed;
     background-size: cover;
+    font-family: 'Crimson Text', serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    font-family: 'Crimson Text', serif;
     overflow-x: hidden;
+    color: #f5f5dc;
 }
 
-/* The Gift Box Styling */
+/* 2. THE MYSTERY BOX (Centered for Phone) */
+#box-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    background: rgba(128, 0, 32, 0.4); /* Subtle overlay to make box pop */
+}
+
 #mystery-box {
-    width: 200px;
-    height: 200px;
+    width: 180px;
+    height: 180px;
     background: #d4af37;
     position: relative;
     cursor: pointer;
     border: 4px solid #b8860b;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    touch-action: manipulation;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-#mystery-box:hover { transform: scale(1.1) rotate(2deg); }
+#mystery-box:hover {
+    transform: scale(1.1) rotate(3deg);
+}
 
 .box-lid {
     position: absolute;
-    top: -10px; left: -10px;
-    width: 220px; height: 40px;
+    top: -10px;
+    left: -10px;
+    width: 200px;
+    height: 35px;
     background: #b8860b;
     border: 2px solid #5d4037;
     z-index: 2;
@@ -36,62 +62,39 @@ body {
 
 .seal {
     position: absolute;
-    top: 50%; left: 50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 3rem;
 }
 
 .instruction {
     position: absolute;
-    bottom: -60px;
+    bottom: -70px;
     width: 100%;
     text-align: center;
     color: #d4af37;
     font-family: 'Cinzel Decorative', cursive;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
-/* The Reveal Layout */
+/* 3. THE REVEALED GIFTS (The Jharokha Style) */
 #gift-container {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    padding: 50px 20px;
+    gap: 30px;
+    padding: 60px 20px;
     align-items: center;
+    width: 100%;
 }
 
 .gift-card {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px); /* Real-glass effect */
-    border: 2px solid #d4af37;
-    border-radius: 50px 50px 0 0; /* Arched like Jaipur windows */
-    padding: 30px;
-    width: 320px;
-    text-align: center;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-    opacity: 0;
-    transform: translateY(100px);
-    transition: all 1s ease-out;
-}
-
-.gift-card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.gift-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 30px 30px 0 0;
-    border: 2px solid #d4af37;
-    margin-bottom: 15px;
-}
-
-h2 {
-    font-family: 'Cinzel Decorative', cursive;
-    color: #d4af37;
-    margin: 15px 0;
-}
-
-.hidden { display: none; }
+    background: rgba(128, 0, 32, 0.6); /* Translucent Burgundy */
+    backdrop-filter: blur(12px); /* Glass effect */
+    -webkit-backdrop-filter: blur(12px);
+    border: 3px solid #d4af37;
+    border-radius: 80px 80px 10px 10px; /* Traditional Arch Shape */
+    padding: 25px;
